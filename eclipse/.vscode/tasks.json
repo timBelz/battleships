@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "javac build",
+            "type": "shell",
+            "command": "javac -cp .;jar/lanterna-3.1.0.jar -d bin src/game/*.java",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Compile all Java files in src/game using lanterna library."
+        },
+        {
+            "label": "run Game",
+            "type": "shell",
+            "command": "java -cp bin;jar/lanterna-3.1.0.jar game.Game",
+            "group": "test",
+            "dependsOn": "javac build",
+            "problemMatcher": []
+        }
+    ]
+}
