@@ -1,0 +1,29 @@
+# 🖥️ Terminal Graphics Engine (Java + Lanterna)
+
+Ein einfaches Java-Terminal-Zeichensystem mit Layern, Farben und Bildimport – ideal für ASCII-Games oder visuelle Demos im Terminal.
+
+---
+
+## 🚀 Features
+
+- ✅ Bild-Layering mit Transparenz
+- ✅ Eigene Bildformate aus Textdateien
+- ✅ Texel-System mit Farbkontrolle pro Zeichen
+- ✅ Kombinieren & Rendern beliebig vieler Layer
+- ✅ Basierend auf [Lanterna](https://github.com/mabe02/lanterna)
+
+---
+
+## 📸 Beispiel
+
+```java
+public static void main(String[] args) throws Exception {
+    Screen terminal = new Screen(breite, hoehe);
+    terminal.openTerminal();
+
+    background.layer = Image.loadImage("battelship.txt", 0, 0);
+    foreground.layer = Image.loadImage("test10.txt", 20, 10);
+    foreground.layer = Image.loadIntoLayer(foreground, "test10.txt", 50, 30);
+
+    terminal.drawLayers(new ScreenLayer[] {background, foreground});
+}
